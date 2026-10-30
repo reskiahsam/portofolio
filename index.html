@@ -1,34 +1,569 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil Mahasiswa</title>
-  <style>
-    body {font-family: Arial, sans-serif; background:#eef2f7; margin:0; color:#1e293b}
-    header {background:#164e63; color:white; text-align:center; padding:28px}
-    main {max-width:760px; margin:24px auto; background:white; padding:24px; border-radius:12px}
-    h2 {color:#0e7490}
-    footer {text-align:center; padding:16px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Muh Rhizqy Ahsam</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #263445;
+    line-height: 1.7;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Navigasi */
+header {
+    background: #10243e;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #d6ad60;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #d6ad60;
+}
+
+/* Beranda */
+.hero {
+    background: linear-gradient(120deg, #10243e, #234766);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.eyebrow {
+    color: #d6ad60;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #d6ad60;
+}
+
+.hero h3 {
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #dce5ef;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #d6ad60;
+    color: #10243e;
+    padding: 11px 23px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: white;
+}
+
+/* Foto profil */
+.hero-image {
+    flex: 0 0 190px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 4px solid #d6ad60;
+}
+
+/* Bagian umum */
+section {
+    padding: 65px 0;
+    scroll-margin-top: 75px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 29px;
+    color: #10243e;
+}
+
+.section-subtitle {
+    color: #697789;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.gold-line {
+    width: 50px;
+    height: 3px;
+    background: #d6ad60;
+    margin: 15px auto 0;
+}
+
+/* Tentang saya */
+.about-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 30px;
+    background: white;
+    border-left: 4px solid #d6ad60;
+    border-radius: 7px;
+    box-shadow: 0 5px 20px #10243e0c;
+}
+
+.about-box p {
+    color: #697789;
+    text-align: justify;
+}
+
+/* Pendidikan dan proyek */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px #10243e12;
+}
+
+.card h3 {
+    color: #10243e;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #697789;
+    font-size: 14px;
+}
+
+.label {
+    display: inline-block;
+    background: #fbf3e3;
+    color: #856323;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+/* Keahlian */
+.skills-section {
+    background: #eaf0f6;
+}
+
+.skills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    background: white;
+    color: #10243e;
+    border: 1px solid #dce3ec;
+    padding: 10px 19px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Kontak */
+.contact-section {
+    background: #10243e;
+    color: white;
+}
+
+.contact-section .section-title {
+    color: white;
+}
+
+.contact-section .section-subtitle {
+    color: #dce5ef;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.contact-item {
+    padding: 22px 15px;
+    text-align: center;
+    border: 1px solid #ffffff30;
+    border-radius: 7px;
+}
+
+.contact-item h3 {
+    color: #d6ad60;
+    margin-bottom: 8px;
+}
+
+.contact-item a {
+    color: white;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.contact-item a:hover {
+    color: #d6ad60;
+}
+
+/* Footer */
+footer {
+    background: #0b1a2d;
+    color: #c6d0dc;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+}
+
+/* Tampilan HP */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image img {
+        width: 145px;
+        height: 145px;
+    }
+
+    .grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-box {
+        padding: 22px;
+    }
+
+    .about-box p {
+        text-align: left;
+    }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Website Profil Mahasiswa</h1>
-    <p>Praktik Administrasi Website</p>
-  </header>
-  <main>
-    <h2>Profil Singkat</h2>
-    <p>Halo, saya [Nama Mahasiswa]. Saya sedang belajar memublikasikan website.</p>
-    <h2>Informasi</h2>
-    <ul>
-      <li>Program Studi: Informatika</li>
-      <li>Mata Kuliah: Administrasi Website</li>
-      <li>Topik: Hosting dan publikasi website</li>
-    </ul>
-    <h2>Tujuan</h2>
-    <p>Halaman ini dibuat sebagai latihan mengunggah HTML ke layanan hosting.</p>
-  </main>
-  <footer>Website latihan mahasiswa — 2026</footer>
+
+<header>
+    <div class="container navbar">
+        <div class="logo">RHIZQY<span>.</span></div>
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#pendidikan">Pendidikan</a>
+            <a href="#skill">Keahlian</a>
+            <a href="#proyek">Proyek</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Beranda -->
+<section class="hero" id="beranda">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <div class="eyebrow">PORTOFOLIO MAHASISWA</div>
+
+            <h1>MUH RHIZQY <span>AHSAM</span></h1>
+
+            <h3>Mahasiswa Teknik Informatika</h3>
+
+            <p>
+                Saya memiliki ketertarikan pada teknologi informasi,
+                pemrograman, dan pengembangan website. Saya berkomitmen
+                untuk terus belajar, meningkatkan keterampilan, serta
+                mengembangkan kemampuan dalam bidang teknologi digital.
+            </p>
+
+            <a href="#tentang" class="btn">Kenali Saya &rarr;</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="poto.jpeg" alt="Foto Muh Rhizqy Ahsam">
+        </div>
+    </div>
+</section>
+
+<!-- Tentang -->
+<section id="tentang">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-title">Tentang Saya</h2>
+            <p class="section-subtitle">
+                Profil singkat dan tujuan pengembangan diri.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="about-box">
+            <p>
+                Perkenalkan, saya Muh Rhizqy Ahsam, mahasiswa Program
+                Studi Teknik Informatika. Saya memiliki minat dalam
+                pemrograman, teknologi informasi, dan pembuatan website.
+                Saya senang mempelajari hal baru, mengembangkan
+                keterampilan, serta meningkatkan kemampuan berpikir
+                logis dan pemecahan masalah. Saya berharap dapat
+                menghasilkan karya yang bermanfaat melalui proses
+                pembelajaran dan pengalaman di bidang teknologi.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Pendidikan -->
+<section id="pendidikan">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <p class="section-subtitle">
+                Latar belakang pendidikan dan pengembangan diri.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <span class="label">2024 - Sekarang</span>
+                <h3>Nama Universitas</h3>
+                <p>S1 Teknik Informatika.</p>
+                <p>Fokus pada teknologi informasi dan pemrograman.</p>
+            </div>
+
+            <div class="card">
+                <span class="label">2021 - 2024</span>
+                <h3>SMA 14 Luwu</h3>
+                <p>Jurusan Ilmu Pengetahuan Alam (IPA).</p>
+            </div>
+
+            <div class="card">
+                <span class="label">Pengembangan Diri</span>
+                <h3>Pembelajaran Mandiri</h3>
+                <p>
+                    Mempelajari pemrograman, desain website,
+                    dan keterampilan digital.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Keahlian -->
+<section class="skills-section" id="skill">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-title">Keahlian Saya</h2>
+            <p class="section-subtitle">
+                Keterampilan yang saya pelajari dan kembangkan.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">Microsoft Office</span>
+            <span class="skill">Desain Grafis</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Kerja Sama Tim</span>
+            <span class="skill">Komunikasi</span>
+        </div>
+    </div>
+</section>
+
+<!-- Proyek -->
+<section id="proyek">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-title">Proyek dan Karya</h2>
+            <p class="section-subtitle">
+                Contoh bidang proyek pembelajaran mahasiswa.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>01. Website Portofolio</h3>
+                <p>
+                    Pembuatan website pribadi menggunakan HTML dan CSS
+                    untuk menampilkan profil serta keterampilan.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>02. Aplikasi To-Do List</h3>
+                <p>
+                    Aplikasi sederhana untuk mencatat dan mengelola
+                    kegiatan harian menggunakan JavaScript.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>03. Desain UI/UX</h3>
+                <p>
+                    Perancangan tampilan antarmuka aplikasi yang
+                    sederhana, rapi, dan mudah digunakan.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Kontak -->
+<section class="contact-section" id="kontak">
+    <div class="container">
+        <div class="section-heading">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <p class="section-subtitle">
+                Informasi kontak dan media sosial.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <a href="mailto:emailkamu@example.com">
+                    emailkamu@example.com
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    @usernamekamu
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <h3>GitHub</h3>
+                <a href="https://github.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    github.com/usernamekamu
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        &copy; <span id="tahun"></span>
+        Muh Rhizqy Ahsam | Portofolio Pribadi
+    </p>
+</footer>
+
+<script>
+    document.getElementById("tahun").textContent =
+        new Date().getFullYear();
+</script>
+
 </body>
 </html>
